@@ -1,0 +1,27 @@
+class RomanNumber:
+
+    def __init__(self, roman=None):
+        self.rom_value = roman
+
+    def decimal_number(self):
+        arab_value = 0
+        all_roman = {'M': 1000, 'CM': 900, 'D': 500, 'CD': 400, 'C': 100, 'XC': 90, 'L': 50, 'XL': 40, 'X': 10,\
+                     'IX': 9, 'V': 5, 'IV': 4, 'I': 1}
+        self.rom_value
+
+        for num in range(len(self.rom_value)):
+            for k, v in all_roman.items():
+                if self.rom_value[num:num+2] == k:
+                    arab_value += v
+                    last_arab_value = v
+                    break
+                if self.rom_value[num:num+1] == k:
+                    arab_value += v
+        arab_value -= last_arab_value
+        return arab_value
+
+
+
+num_1 = RomanNumber('VI')
+
+print(num_1.decimal_number())
